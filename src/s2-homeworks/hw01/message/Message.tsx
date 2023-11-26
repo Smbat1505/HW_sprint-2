@@ -19,6 +19,7 @@ const Message = (props: MessagePropsType) => {
                     src={avatar}
                     alt={name}
                 />
+                <div className={s.corner}/>
                 <div className={s.text}>
                     <div id={'hw1-name-' + props.message.id} className={s.name}>
                         {name}
