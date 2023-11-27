@@ -11,11 +11,13 @@ import s from './HW7.module.css'
 * 4 - сделать стили в соответствии с дизайном
 * */
 
+
 const arr = [
-    { id: 1, value: 'x' },
-    { id: 2, value: 'y' },
-    { id: 3, value: 'z' },
+    { id: 2, value: 1 },
+    { id: 3, value: 2 },
+    { id: 1, value: 3 },
 ] // value может быть изменено
+export type SelectType = typeof arr
 
 const HW7 = () => {
     const [value, onChangeOption] = useState(1) // селект и радио должны работать синхронно
@@ -23,6 +25,7 @@ const HW7 = () => {
     return (
         <div id={'hw7'}>
             <div className={s2.hwTitle}>Homework #7</div>
+            <hr/>
 
             {/*демонстрация возможностей компонент:*/}
             <div className={s2.hw}>
@@ -46,6 +49,7 @@ const HW7 = () => {
                     </div>
                 </div>
             </div>
+            <hr/>
         </div>
     )
 }

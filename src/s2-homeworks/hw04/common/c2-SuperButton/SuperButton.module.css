@@ -1,5 +1,5 @@
 .button {
-    width: 84px;
+    width: auto;
     height: 20px;
     font-family: Montserrat, serif;
     font-size: 14px;
@@ -13,6 +13,7 @@
     /*gap: 10px;*/
     border-radius: 3px;
     box-sizing: content-box;
+    border: none;
 }
 
 .disabled {
