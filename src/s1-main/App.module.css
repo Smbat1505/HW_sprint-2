@@ -17,6 +17,10 @@
 .hw {
 
 }
+#hw1,#hw2,#hw3,#hw4,#hw5,#hw6,#hw7,#hw8,#hw9,#hw10,#hw11,#hw12,#hw13,#hw14,
+#hw15{
+    margin: 30px 0 40px;
+}
 
 .hwTitle {
     color: #000;

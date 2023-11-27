@@ -2,33 +2,82 @@
 }
 
 .inputAndButtonContainer {
+    display: flex;
+    justify-content: start;
+    align-items: flex-start;
+    gap: 12px;
+
+    /*padding: ;*/
 }
 
 .error {
+    color: #cc0000;
+    margin: 6px 0 6px;
 }
 
 .input {
+    display: flex;
+    width: 372px;
+    height: 36px;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
 }
 
 .input:focus {
 }
 
 .errorInput {
+    display: flex;
+    width: 372px;
+    height: 36px;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+    border: 2px solid #cc0000;
+    border-radius: 5px;
+    background: rgba(204, 0, 0, 0.16);
 }
 
 .button {
+    display: inline-flex;
+    height: 36px;
+    padding: 5px 24px;
+    justify-content: center;
+    align-items: center;
+    background: #06C;
+    border-radius: 3px;
+    cursor: pointer;
+
+    color: #FFF;
+    font-family: Montserrat, sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    text-transform: capitalize;
+
 }
 
 .button:focus {
 }
 
 .button:active {
+
+    background: #06C;
 }
 
 .button:disabled {
+    border-radius: 3px;
+    opacity: 0.5;
+    background: #06C;
+    cursor: default;
 }
 
 .text {
+    color: rgba(0, 0, 0, 0.50);
+    font-family: Montserrat, serif;
+    font-size: 14px;
+    font-weight: 400;
+    margin-bottom: 9px;
 }
 
 .greeting {

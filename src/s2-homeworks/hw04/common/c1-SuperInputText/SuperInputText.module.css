@@ -2,19 +2,34 @@
 }
 
 .input {
+    display: flex;
+    width: 372px;
+    height: 36px;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+    border: 1px solid #D1D1D1;
+    border-radius: 5px;
+    -moz-outline-radius: 5px;
 }
 
 .inputWrapper {
+    display: flex;
+    flex-direction: column-reverse;
+    gap: 10px;
 }
 
 .superInput {
 }
 
 .errorInput {
+    /*outline: 2px dashed #CC1439;*/
+    outline-color: #CC1439;
 }
 
 .errorInput:focus {
 }
 
 .error {
+    color: #CC1439;
 }
