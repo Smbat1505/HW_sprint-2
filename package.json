@@ -1,6 +1,6 @@
 {
   "name": "hws2",
-  "homepage": "https://Smbat1505.github.io/Home-Work-from-the-2-sprint",
+  "homepage": "https://Smbat1505.github.io/HW_sprint-2",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -16,8 +16,7 @@
     "@types/react-dom": "18.0.6",
     "@types/uuid": "8.3.4",
     "axios": "0.27.2",
-    "gh-pages": "^5.0.0",
-    "moment": "2.29.4",
+    "gh-pages": "4.0.0",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-redux": "8.0.4",
