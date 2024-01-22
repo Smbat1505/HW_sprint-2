@@ -1,8 +1,24 @@
 .container {
+    display: flex;
+    flex-direction: column;
+    width: 250px;
 }
 
 .wrapper {
+    display: inline-flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 220px;
+    flex-shrink: 0;
+}
+.wrapper:first-child{
+    width: 180px;
 }
 
 .number {
+    color: #000;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 20px; /* 125% */
 }
