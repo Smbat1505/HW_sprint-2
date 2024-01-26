@@ -19,5 +19,21 @@ html {
 }
 
 .select {
+    width: 171px;
+    height: 36px;
+    /*background: border-box;*/
+}
+.lightGround {
+    color: #000000;
+    background: #FFFFFF;
+}
 
+.blueGround {
+    color: #000000;
+    background: #DDEEFF;
+}
+
+.darkGround {
+    color: #FFFFFF;
+    background: #212A34;
 }
