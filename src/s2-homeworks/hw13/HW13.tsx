@@ -31,16 +31,16 @@ const HW13 = () => {
             setCode(`Код ${r.status}!`)
             setImage(success200)
             setInfo('Код 200 - обычно означает что скорее всего все ок)')
-            setText('...все ок)')
+            setText('...всё ок)')
         }).catch((e) => {
             console.error(e)
             if ( e.response.status === 400) {
-                setCode(`Ошибка ${e.response.status}!`)
+                setCode(e.response.status)
                 setImage(error400)
                 setInfo('ошибка 400 – обычно означает что скорее всего фронт а отправил что-то не то на бзк! ')
                 setText('Ты не отправил success в body вообще!')
             } else if (e.response.status === 500) {
-                setCode(`Ошибка ${e.response.status}!`)
+                setCode(e.response.status)
                 setImage(error500)
                 setInfo('ошибка 500 – обычно означает что что-то сломалось на сервере, например база данных) ')
                 setText(' эмитация ошибки на сервере')
