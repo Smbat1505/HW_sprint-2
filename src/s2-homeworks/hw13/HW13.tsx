@@ -19,72 +19,75 @@ const HW13 = () => {
     const [text, setText] = useState('')
     const [info, setInfo] = useState('')
     const [image, setImage] = useState('')
-
     const send = (x?: boolean | null) => () => {
-        const url =
-            x === null
-                ? 'https://xxxxxx.ccc' // имитация запроса на не корректный адрес
-                : 'https://samurai.it-incubator.io/api/3.0/homework/test'
-
+        const url = x === null ? 'https://xxxxxx.ccc' // имитация запроса на не корректный адрес
+            : 'https://samurai.it-incubator.io/api/3.0/homework/test'
         setCode('')
         setImage('')
         setText('')
         setInfo('...loading')
-
-        axios
-            .post(url, {success: x})
-            .then((res) => {
-                setCode('Код 200!')
-                setImage(success200)
-                // дописать
-
-            })
-            .catch((e) => {
-                // дописать
-
-            })
+        axios.post(url, {success: x}).then(() => {
+            setInfo('')
+            setCode('Код 200!')
+            setImage(success200)
+            setInfo('...Все ок)')
+            setText('Код 200 - обычно означает что скорее всего все ок)')
+        }).catch(() => {
+            switch (x) {
+                case false:
+                    setCode('Ошибка 400!')
+                    setImage(error400)
+                    setText('Ты не отправил success в body вообще! Ошибка 400 – обычно означает что скорее всего фронт а отправил что-то не то на бзк!')
+                    break
+                case undefined:
+                    setCode('Ошибка 400!')
+                    setImage(error500)
+                    setInfo('Имитация ошибки на сервере')
+                    setText(' ошибка 500 – обычно означает что что-то сломалось на сервере, например база данных)')
+                    break
+                default:
+                    setCode('ERROR!')
+                    setImage(errorUnknown)
+                    setInfo('Network Error')
+                    setText('AxiosError')
+            }
+        }).finally(() => {
+            setInfo('')
+        })
     }
-
     return (
         <div id={'hw13'}>
-            <div className={s2.hwTitle}>Homework #13</div>
 
+            <div className={s2.hwTitle}>Homework #13</div>
+            <hr/>
             <div className={s2.hw}>
                 <div className={s.buttonsContainer}>
                     <SuperButton
                         id={'hw13-send-true'}
                         onClick={send(true)}
                         xType={'secondary'}
-                        // дописать
-
-                    >
+                        disabled={info === '...loading'}>
                         Send true
                     </SuperButton>
                     <SuperButton
                         id={'hw13-send-false'}
                         onClick={send(false)}
                         xType={'secondary'}
-                        // дописать
-
-                    >
+                        disabled={info === '...loading'}>
                         Send false
                     </SuperButton>
                     <SuperButton
                         id={'hw13-send-undefined'}
                         onClick={send(undefined)}
                         xType={'secondary'}
-                        // дописать
-
-                    >
+                        disabled={info === '...loading'}>
                         Send undefined
                     </SuperButton>
                     <SuperButton
                         id={'hw13-send-null'}
                         onClick={send(null)} // имитация запроса на не корректный адрес
                         xType={'secondary'}
-                        // дописать
-
-                    >
+                        disabled={info === '...loading'}>
                         Send null
                     </SuperButton>
                 </div>
@@ -107,6 +110,7 @@ const HW13 = () => {
                     </div>
                 </div>
             </div>
+            <hr/>
         </div>
     )
 }

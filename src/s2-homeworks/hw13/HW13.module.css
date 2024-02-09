@@ -1,7 +1,19 @@
+#hw13 {
+    margin: 100px 0 50px;
+}
+
 .buttonsContainer {
+    display: inline-flex;
+    gap: 20px;
+    margin: 10px 0 100px;
 }
 
 .responseContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 100px
+;
 }
 
 .imageContainer {
@@ -10,7 +22,7 @@
 .image {
 }
 
-.textContainer{
+.textContainer {
 }
 
 .code {
@@ -18,5 +30,6 @@
 
 .text {
 }
+
 .info {
 }
