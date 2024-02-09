@@ -27,32 +27,34 @@ const HW13 = () => {
         setText('')
         setInfo('...loading')
         axios.post(url, {success: x}).then(() => {
-            setInfo('')
+            // debugger
             setCode('Код 200!')
             setImage(success200)
-            setInfo('...Все ок)')
-            setText('Код 200 - обычно означает что скорее всего все ок)')
+            setInfo('Код 200 - обычно означает что скорее всего все ок)')
+            setText('...Все ок)')
         }).catch(() => {
             switch (x) {
                 case false:
+                    // debugger
                     setCode('Ошибка 400!')
                     setImage(error400)
-                    setText('Ты не отправил success в body вообще! Ошибка 400 – обычно означает что скорее всего фронт а отправил что-то не то на бзк!')
+                    setInfo('Ошибка 400 – обычно означает что скорее всего фронт а отправил что-то не то на бзк! ')
+                    setText('Ты не отправил success в body вообще!')
                     break
                 case undefined:
+                    // debugger
                     setCode('Ошибка 400!')
                     setImage(error500)
-                    setInfo('Имитация ошибки на сервере')
-                    setText(' ошибка 500 – обычно означает что что-то сломалось на сервере, например база данных)')
+                    setInfo('ошибка 500 – обычно означает что что-то сломалось на сервере, например база данных) ')
+                    setText(' Имитация ошибки на сервере')
                     break
                 default:
+                    // debugger
                     setCode('ERROR!')
                     setImage(errorUnknown)
-                    setInfo('Network Error')
-                    setText('AxiosError')
+                    setInfo('AxiosError')
+                    setText('Network Error')
             }
-        }).finally(() => {
-            setInfo('')
         })
     }
     return (
