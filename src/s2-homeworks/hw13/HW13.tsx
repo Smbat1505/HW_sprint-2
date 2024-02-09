@@ -26,34 +26,29 @@ const HW13 = () => {
         setImage('')
         setText('')
         setInfo('...loading')
-        axios.post(url, {success: x}).then(() => {
-            // debugger
-            setCode('Код 200!')
+        axios.post(url, {success: x}).then((r) => {
+            console.log(r)
+            setCode(`Код ${r.status}!`)
             setImage(success200)
             setInfo('Код 200 - обычно означает что скорее всего все ок)')
             setText('...все ок)')
-        }).catch(() => {
-            switch (x) {
-                case false:
-                    // debugger
-                    setCode('Ошибка 400!')
-                    setImage(error400)
-                    setInfo('Ошибка 400 – обычно означает что скорее всего фронт а отправил что-то не то на бзк! ')
-                    setText('Ты не отправил success в body вообще!')
-                    break
-                case undefined:
-                    // debugger
-                    setCode('Ошибка 500!')
-                    setImage(error500)
-                    setInfo('ошибка 500 – обычно означает что что-то сломалось на сервере, например база данных) ')
-                    setText(' эмитация ошибки на сервере')
-                    break
-                default:
-                    // debugger
-                    setCode('ERROR!')
-                    setImage(errorUnknown)
-                    setInfo('AxiosError')
-                    setText('Network Error')
+        }).catch((e) => {
+            console.error(e)
+            if ( e.response.status === 400) {
+                setCode(`Ошибка ${e.response.status}!`)
+                setImage(error400)
+                setInfo('ошибка 400 – обычно означает что скорее всего фронт а отправил что-то не то на бзк! ')
+                setText('Ты не отправил success в body вообще!')
+            } else if (e.response.status === 500) {
+                setCode(`Ошибка ${e.response.status}!`)
+                setImage(error500)
+                setInfo('ошибка 500 – обычно означает что что-то сломалось на сервере, например база данных) ')
+                setText(' эмитация ошибки на сервере')
+            } else {
+                setCode('ERROR!')
+                setImage(errorUnknown)
+                setInfo('AxiosError')
+                setText('Network Error')
             }
         })
     }
@@ -73,14 +68,14 @@ const HW13 = () => {
                     </SuperButton>
                     <SuperButton
                         id={'hw13-send-false'}
-                        onClick={send(false)}
+                        onClick={send(undefined)}
                         xType={'secondary'}
                         disabled={info === '...loading'}>
                         Send false
                     </SuperButton>
                     <SuperButton
                         id={'hw13-send-undefined'}
-                        onClick={send(undefined)}
+                        onClick={send(false)}
                         xType={'secondary'}
                         disabled={info === '...loading'}>
                         Send undefined
