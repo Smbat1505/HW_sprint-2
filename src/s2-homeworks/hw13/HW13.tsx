@@ -31,7 +31,7 @@ const HW13 = () => {
             setCode('Код 200!')
             setImage(success200)
             setInfo('Код 200 - обычно означает что скорее всего все ок)')
-            setText('...Все ок)')
+            setText('...все ок)')
         }).catch(() => {
             switch (x) {
                 case false:
