@@ -43,10 +43,10 @@ const HW13 = () => {
                     break
                 case undefined:
                     // debugger
-                    setCode('Ошибка 400!')
+                    setCode('Ошибка 500!')
                     setImage(error500)
                     setInfo('ошибка 500 – обычно означает что что-то сломалось на сервере, например база данных) ')
-                    setText(' Имитация ошибки на сервере')
+                    setText(' эмитация ошибки на сервере')
                     break
                 default:
                     // debugger
