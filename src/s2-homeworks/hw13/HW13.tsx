@@ -30,17 +30,17 @@ const HW13 = () => {
             console.log(r)
             setCode(`Код ${r.status}!`)
             setImage(success200)
-            setInfo('Код 200 - обычно означает что скорее всего все ок)')
+            setInfo('Код 200 - обычно означает что скорее всего всё ок)')
             setText('...всё ок)')
         }).catch((e) => {
             console.error(e)
             if ( e.response.status === 400) {
-                setCode(e.response.status)
+                setCode(`Ошибка ${e.response.status}!`)
                 setImage(error400)
                 setInfo('ошибка 400 – обычно означает что скорее всего фронт а отправил что-то не то на бзк! ')
                 setText('Ты не отправил success в body вообще!')
             } else if (e.response.status === 500) {
-                setCode(e.response.status)
+                setCode(`Ошибка ${e.response.status}!`)
                 setImage(error500)
                 setInfo('ошибка 500 – обычно означает что что-то сломалось на сервере, например база данных) ')
                 setText(' эмитация ошибки на сервере')
@@ -68,14 +68,14 @@ const HW13 = () => {
                     </SuperButton>
                     <SuperButton
                         id={'hw13-send-false'}
-                        onClick={send(undefined)}
+                        onClick={send(false)}
                         xType={'secondary'}
                         disabled={info === '...loading'}>
                         Send false
                     </SuperButton>
                     <SuperButton
                         id={'hw13-send-undefined'}
-                        onClick={send(false)}
+                        onClick={send(undefined)}
                         xType={'secondary'}
                         disabled={info === '...loading'}>
                         Send undefined
