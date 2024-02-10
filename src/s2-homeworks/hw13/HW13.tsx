@@ -28,22 +28,22 @@ const HW13 = () => {
         setInfo('...loading')
         axios.post(url, {success: x}).then((r) => {
             console.log(r)
-            setCode(`Код ${r.status}!`)
+            setCode(`код ${r.status}!`)
             setImage(success200)
-            setInfo('Код 200 - обычно означает что скорее всего всё ок)')
+            setInfo('код 200 - обычно означает что скорее всего всё ок)')
             setText('...всё ок)')
         }).catch((e) => {
             console.error(e)
             if ( e.response.status === 400) {
-                setCode(`Ошибка ${e.response.status}!`)
+                setCode(`ошибка ${e.response.status}!`)
                 setImage(error400)
-                setInfo('ошибка 400 – обычно означает что скорее всего фронт а отправил что-то не то на бзк! ')
+                setInfo('ошибка 400 - обычно означает что скорее всего фронт отправил что-то не то на бэк!')
                 setText('Ты не отправил success в body вообще!')
             } else if (e.response.status === 500) {
-                setCode(`Ошибка ${e.response.status}!`)
+                setCode(`ошибка ${e.response.status}!`)
                 setImage(error500)
-                setInfo('ошибка 500 – обычно означает что что-то сломалось на сервере, например база данных) ')
-                setText(' эмитация ошибки на сервере')
+                setInfo('ошибка 500 - обычно означает что что-то сломалось на сервере, например база данных)')
+                setText('эмитация ошибки на сервере')
             } else {
                 setCode('ERROR!')
                 setImage(errorUnknown)
