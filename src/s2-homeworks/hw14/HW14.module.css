@@ -3,5 +3,11 @@
 }
 
 .loading {
+    color: #4D4D4D;
+    padding: 10px;
+    margin-bottom: 20px;
+    width: 360px;
+    display: inline-flex;
+    justify-content: end;
 
 }
